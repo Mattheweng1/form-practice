@@ -15,21 +15,22 @@
       <input id="emailInput">
       <div class="error"></div>
     </label>
-    <label for="countryInput">
-      Country : 
-      <select name="country" id="countryInput">
-        <option value="ch">Switzerland</option>
-        <option value="fr">France</option>
-        <option value="de">Germany</option>
-        <option value="nl">The Netherlands</option>
-      </select>
+    <div id="countryZipContainer">
+      <label for="countryInput">
+        Country :
+        <select name="country" id="countryInput">
+          <option value="ch">Switzerland</option>
+          <option value="fr">France</option>
+          <option value="de">Germany</option>
+          <option value="nl">The Netherlands</option>
+        </select>
+      </label>
+      <label for="zipInput">
+        ZIP :
+        <input id="zipInput">
+      </label>
       <div class="error"></div>
-    </label>
-    <label for="zipInput">
-      ZIP : 
-      <input id="zipInput">
-      <div class="error"></div>
-    </label>
+    </div>
     <label for="passwordInput">
       Password
       <input type="password" id="passwordInput">

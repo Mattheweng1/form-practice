@@ -8,6 +8,23 @@ form.addEventListener('submit', (event) => {
   if (!isValid) {
     event.preventDefault();
     showErrors();
+    console.log(form.elements);
+    [...form.elements].forEach((formControl) => {
+    if (!formControl.checkValidity()) {
+        formControl.classList.add('flashError');
+        setTimeout(() => {
+          formControl.classList.remove('flashError');
+        }, 300)
+      }
+    })
+    
+    if (!document.getElementById('zipInput').checkValidity()) {
+      const zipError = document.querySelector('#countryZipContainer>.error');
+      zipError.classList.add('flashError');
+      setTimeout(() => {
+        zipError.classList.remove('flashError');
+      }, 300)
+    }
   }
 })
 
@@ -93,10 +110,8 @@ const validateZip = () => {
 validateZip();
 
 const showErrorZip = () => {
-  countryInput = document.getElementById('countryInput');
-  document.querySelector('#countryInput+.error').textContent = countryInput.validationMessage;
   zipInput = document.getElementById('zipInput');
-  document.querySelector('#zipInput+.error').textContent = zipInput.validationMessage;
+  document.querySelector('#countryZipContainer .error').textContent = zipInput.validationMessage;
 }
 
 document.getElementById('countryInput').addEventListener('change', () => {
